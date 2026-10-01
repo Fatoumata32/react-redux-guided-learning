@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from "redux";
-import logger from "redux-logger";
+import { logger } from "redux-logger";
 import { rootReducer } from "./reducers";
 
 const STORAGE_KEY = "react-redux-guided-learning-state";
