@@ -1,0 +1,204 @@
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(230px, 0.85fr);
+  margin: 30px 0;
+  border: 1px solid #c9d5cf;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.counterPanel,
+.authPanel {
+  padding: 27px 30px;
+}
+
+.counterPanel {
+  border-right: 1px solid #c9d5cf;
+}
+
+.counterHeading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  margin: 0 0 5px;
+  color: #63766b;
+  font: 11px/1.4 var(--mono);
+  text-transform: uppercase;
+}
+
+.counterHeading h2,
+.authPanel h2 {
+  margin: 0;
+  color: #1c332b;
+  font: 700 21px/1.2 var(--heading);
+}
+
+.stateTag {
+  padding: 5px 8px;
+  color: #13795b;
+  background: #e0eee5;
+  font: 11px/1.2 var(--mono);
+}
+
+.value {
+  display: block;
+  margin: 26px 0 21px;
+  color: #13795b;
+  font: 700 clamp(64px, 12vw, 104px)/1 var(--heading);
+  font-variant-numeric: tabular-nums;
+}
+
+.counterControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.primaryButton,
+.secondaryButton,
+.darkButton,
+.textButton {
+  min-height: 42px;
+  border: 0;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.darkButton:hover:not(:disabled),
+.textButton:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton {
+  padding: 0 19px;
+  color: #fff;
+  background: #13795b;
+}
+
+.primaryButton:hover {
+  background: #0d6248;
+}
+
+.secondaryButton {
+  min-width: 42px;
+  padding: 0 12px;
+  color: #244338;
+  background: #e4ece6;
+}
+
+.secondaryButton:hover {
+  background: #d4e3d9;
+}
+
+.setForm,
+.signInForm {
+  display: grid;
+  gap: 9px;
+  margin-top: 28px;
+}
+
+.setForm label,
+.signInForm label {
+  color: #42574c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.inputRow input,
+.signInForm input {
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #c9d5cf;
+  border-radius: 0;
+  color: #20352c;
+  background: #fff;
+}
+
+.inputRow input {
+  flex: 1;
+}
+
+.darkButton {
+  padding: 0 14px;
+  color: #fff;
+  background: #263e33;
+}
+
+.darkButton:hover:not(:disabled) {
+  background: #142a20;
+}
+
+.darkButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.authPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.signInForm {
+  margin-top: 25px;
+}
+
+.sessionState {
+  display: grid;
+  justify-items: start;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.sessionState p {
+  margin: 0;
+  color: #52645b;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.sessionState strong {
+  color: #20352c;
+}
+
+.textButton {
+  min-height: 34px;
+  padding: 0;
+  color: #13795b;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .counterPanel,
+  .authPanel {
+    padding: 23px 20px;
+  }
+
+  .counterPanel {
+    border-right: 0;
+    border-bottom: 1px solid #c9d5cf;
+  }
+}
+
+@media (max-width: 400px) {
+  .inputRow {
+    flex-direction: column;
+  }
+}
