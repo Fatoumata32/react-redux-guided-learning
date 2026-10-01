@@ -1,3 +1,4 @@
+import type { UnknownAction } from "redux";
 import {
   DECREMENT,
   INCREMENT,
@@ -19,7 +20,7 @@ const initialState: CounterState = { value: 0 };
 
 export const counterReducer = (
   state: CounterState = initialState,
-  action: CounterAction,
+  action: CounterAction | UnknownAction,
 ): CounterState => {
   switch (action.type) {
     case INCREMENT:
@@ -29,7 +30,10 @@ export const counterReducer = (
     case RESET:
       return initialState;
     case SET_VALUE:
-      return { value: action.value };
+      if ("value" in action && typeof action.value === "number") {
+        return { value: action.value };
+      }
+      return state;
     default:
       return state;
   }

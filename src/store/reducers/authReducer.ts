@@ -1,3 +1,4 @@
+import type { UnknownAction } from "redux";
 import { SIGN_IN, SIGN_OUT } from "../actions/authActions";
 
 interface AuthState {
@@ -12,11 +13,14 @@ const initialState: AuthState = { userName: null };
 
 export const authReducer = (
   state: AuthState = initialState,
-  action: AuthAction,
+  action: AuthAction | UnknownAction,
 ): AuthState => {
   switch (action.type) {
     case SIGN_IN:
-      return { userName: action.userName };
+      if ("userName" in action && typeof action.userName === "string") {
+        return { userName: action.userName };
+      }
+      return state;
     case SIGN_OUT:
       return initialState;
     default:
